@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tina Nails and Spa – Danbury, CT</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blush: #f4cdd5;
+  --rose: #c8718a;
+  --deep-rose: #9e3f5c;
+  --champagne: #f9f0e6;
+  --ivory: #fdfaf6;
+  --dark: #2c1a22;
+  --mid: #5a3a47;
+  --light-text: #8a6070;
+  --gold: #c9a96e;
+  --gold-light: #e8d5b0;
+  --white: #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--ivory);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* ── NAVBAR ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(200,113,138,0.15);
+  padding: 0 2rem;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(44,26,34,0.08);
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.nav-logo span:first-child {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: var(--deep-rose);
+  letter-spacing: 0.02em;
+}
+.nav-logo span:last-child {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: color 0.3s, background 0.3s;
+}
+.nav-links a:hover { color: var(--deep-rose); background: rgba(200,113,138,0.08); }
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+  color: var(--white) !important;
+  padding: 0.55rem 1.2rem !important;
+  border-radius: 30px !important;
+  box-shadow: 0 4px 15px rgba(158,63,92,0.35);
+}
+.nav-cta:hover { background: linear-gradient(135deg, var(--deep-rose), #7a2e48) !important; transform: translateY(-1px); }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--deep-rose);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 72px; left: 0; right: 0;
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  padding: 1.5rem 2rem 2rem;
+  border-bottom: 2px solid var(--blush);
+  box-shadow: 0 10px 40px rgba(44,26,34,0.12);
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+.mobile-nav.open {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+.mobile-nav ul { list-style: none; }
+.mobile-nav ul li { border-bottom: 1px solid rgba(200,113,138,0.12); }
+.mobile-nav ul li:last-child { border-bottom: none; }
+.mobile-nav ul a {
+  display: block;
+  padding: 0.9rem 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.mobile-nav ul a:hover { color: var(--deep-rose); }
+.mobile-nav .mobile-cta {
+  display: block;
+  margin-top: 1rem;
+  background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+  color: var(--white) !important;
+  text-align: center;
+  padding: 0.9rem 1.5rem !important;
+  border-radius: 30px;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.1em;
+  box-shadow: 0 4px 15px rgba(158,63,92,0.35);
+  border-bottom: none !important;
+  min-height: 44px;
+}
+
+/* ── HERO ── */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(44,26,34,0.72) 0%, rgba(158,63,92,0.45) 50%, rgba(44,26,34,0.3) 100%);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 8rem 2rem 4rem 6vw;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(201,169,110,0.2);
+  border: 1px solid rgba(201,169,110,0.5);
+  border-radius: 30px;
+  padding: 0.4rem 1rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+.hero-badge span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.star-row { display: flex; align-items: center; gap: 0.2rem; }
+.star { color: var(--gold); font-size: 0.75rem; }
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.01em;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--blush);
+}
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 300;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+}
+.hero-desc {
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  color: rgba(255,255,255,0.82);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: 0 8px 30px rgba(158,63,92,0.45);
+  transition: all 0.3s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(158,63,92,0.55); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0.9rem 2rem;
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.4);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* ── STATS BAND ── */
+.stats-band {
+  background: linear-gradient(135deg, var(--deep-rose), var(--rose));
+  padding: 2.5rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.stat-item {
+  text-align: center;
+  padding: 0.5rem;
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.stat-label {
+  font-size: clamp(0.6rem, 1.2vw, 0.72rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+}
+
+/* ── ABOUT ── */
+#about {
+  padding: 7rem 4vw;
+  background: var(--ivory);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.about-images {
+  position: relative;
+}
+.about-img-main {
+  width: 80%;
+  aspect-ratio: 4/5;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(44,26,34,0.2);
+}
+.about-img-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-img-accent {
+  position: absolute;
+  bottom: -2rem;
+  right: 0;
+  width: 50%;
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 4px solid var(--ivory);
+  box-shadow: 0 12px 40px rgba(44,26,34,0.18);
+}
+.about-img-accent img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: var(--dark);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+.section-title em { font-style: italic; color: var(--rose); }
+.about-text p {
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  color: var(--light-text);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--champagne);
+  border-radius: 10px;
+  border-left: 3px solid var(--rose);
+}
+.feature-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.feature-icon svg { width: 16px; height: 16px; fill: white; }
+.feature-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--dark);
+  letter-spacing: 0.05em;
+  margin-top: 0.4rem;
+}
+
+/* ── SERVICES ── */
+#services {
+  background: var(--champagne);
+  padding: 7rem 4vw;
+}
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+}
+.section-header p {
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  color: var(--light-text);
+  line-height: 1.7;
+  margin-top: 1rem;
+  font-weight: 300;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.service-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(44,26,34,0.07);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 50px rgba(44,26,34,0.14); }
+.service-card-img {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+.service-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.service-card:hover .service-card-img img { transform: scale(1.06); }
+.service-card-body {
+  padding: 1.5rem;
+}
+.service-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+.service-desc {
+  font-size: 0.8rem;
+  color: var(--light-text);
+  line-height: 1.6;
+  font-weight: 300;
+}
+.service-price {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.35rem 1rem;
+  background: linear-gradient(135deg, var(--blush), #f8dce4);
+  color: var(--deep-rose);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-radius: 20px;
+}
+
+.services-extra {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 1.5rem auto 0;
+}
+.service-mini {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 10px rgba(44,26,34,0.06);
+  transition: transform 0.3s;
+}
+.service-mini:hover { transform: translateY(-3px); }
+.service-mini-dot {
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.service-mini-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mid);
+}
+
+/* ── GALLERY ── */
+#gallery {
+  padding: 7rem 4vw;
+  background: var(--dark);
+}
+.gallery-header { text-align: center; margin-bottom: 3rem; }
+.gallery-header .section-tag { color: var(--gold); }
+.gallery-header .section-title { color: var(--white); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+.gallery-item:first-child {
+  grid-row: span 2;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 250px;
+  transition: transform 0.5s;
+  display: block;
+}
+.gallery-item:hover img { transform: scale(1.04); }
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(44,26,34,0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+/* ── TESTIMONIALS ── */
+#testimonials {
+  padding: 7rem 4vw;
+  background: var(--ivory);
+}
+.testimonials-inner { max-width: 1100px; margin: 0 auto; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+.testimonial-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(44,26,34,0.07);
+  border-top: 3px solid var(--rose);
+  transition: transform 0.3s;
+}
+.testimonial-card:hover { transform: translateY(-4px); }
+.testi-stars { display: flex; gap: 3px; margin-bottom: 1rem; }
+.testi-star { color: var(--gold); font-size: 0.9rem; }
+.testi-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--mid);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.testi-avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--blush), var(--rose));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.testi-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+.testi-date {
+  font-size: 0.7rem;
+  color: var(--light-text);
+  margin-top: 0.1rem;
+}
+.rating-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  background: linear-gradient(135deg, var(--deep-rose), var(--rose));
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.rating-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1;
+}
+.rating-detail .stars-row { display: flex; gap: 4px; }
+.rating-detail .s { color: var(--gold-light); font-size: 1.2rem; }
+.rating-detail p {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.75);
+  margin-top: 0.4rem;
+  letter-spacing: 0.05em;
+}
+.rating-divider { width: 1px; height: 60px; background: rgba(255,255,255,0.25); }
+.rating-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.9);
+  max-width: 200px;
+  line-height: 1.4;
+}
+
+/* ── HOURS ── */
+#hours {
+  background: var(--champagne);
+  padding: 7rem 4vw;
+}
+.hours-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.hours-table { margin-top: 2rem; }
+.hours-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(200,113,138,0.15);
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-day {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mid);
+  letter-spacing: 0.05em;
+}
+.hours-time {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--light-text);
+}
+.hours-today {
+  background: rgba(200,113,138,0.1);
+  margin: 0 -0.75rem;
+  padding: 0.85rem 0.75rem;
+  border-radius: 8px;
+  border-bottom: none !important;
+}
+.hours-today .hours-day { color: var(--deep-rose); }
+.hours-today .hours-time { color: var(--deep-rose); font-weight: 600; }
+.open-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin-top: 0.75rem;
+}
+.open-dot {
+  width: 6px;
+  height: 6px;
+  background: #43a047;
+  border-radius: 50%;
+  animation: blink 1.5s ease-in-out infinite;
+}
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+.hours-info p {
+  font-size: 0.85rem;
+  color: var(--light-text);
+  line-height: 1.7;
+  margin-top: 1rem;
+  font-weight: 300;
+}
+
+/* ── CONTACT ── */
+#contact {
+  padding: 7rem 4vw;
+  background: var(--ivory);
+}
+.contact-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.contact-details { margin-top: 2.5rem; }
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--blush), #f8dce4);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-icon svg { width: 20px; height: 20px; fill: var(--deep-rose); }
+.contact-info-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.contact-info-value {
+  font-size: 0.9rem;
+  color: var(--mid);
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 1.5;
+}
+.contact-info-value:hover { color: var(--deep-rose); }
+.contact-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+.btn-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: 0 6px 25px rgba(158,63,92,0.4);
+  transition: all 0.3s;
+}
+.btn-call:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(158,63,92,0.5); }
+.btn-call svg { width: 16px; height: 16px; fill: white; }
+.btn-directions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0.9rem 2rem;
+  background: transparent;
+  color: var(--deep-rose);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 30px;
+  border: 2px solid var(--rose);
+  transition: all 0.3s;
+}
+.btn-directions:hover { background: var(--blush); transform: translateY(-2px); }
+.btn-directions svg { width: 16px; height: 16px; fill: var(--deep-rose); }
+
+.map-container {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(44,26,34,0.15);
+  aspect-ratio: 4/3;
+}
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  padding: 4rem 4vw 2rem;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand .nav-logo span:first-child { font-size: 1.6rem; color: var(--blush); }
+.footer-brand .nav-logo span:last-child { color: var(--gold); }
+.footer-tagline {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 1rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.footer-heading {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+}
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.6rem; }
+.footer-links a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 300;
+}
+.footer-links a:hover { color: var(--blush); }
+.footer-contact-item {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+  font-weight: 300;
+}
+.footer-contact-item a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-contact-item a:hover { color: var(--blush); }
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-copy {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  font-weight: 300;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-extra { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0 1.2rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .hero-content { padding: 7rem 1.5rem 4rem; }
+  .hero-buttons { flex-direction: column; }
+  .btn-primary, .btn-secondary { width: 100%; }
+
+  .stats-band { grid-template-columns: repeat(2, 1fr); }
+
+  #about {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 5rem 1.5rem;
+  }
+  .about-images { min-height: 300px; }
+  .about-img-main { width: 85%; }
+  .about-features { grid-template-columns: 1fr; }
+
+  #services { padding: 5rem 1.5rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .services-extra { grid-template-columns: 1fr; }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-item:first-child { grid-row: span 1; }
+
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .rating-summary { flex-direction: column; gap: 1rem; text-align: center; }
+  .rating-divider { width: 60px; height: 1px; }
+
+  .hours-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0;
+  }
+  #hours { padding: 5rem 1.5rem; }
+
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  #contact { padding: 5rem 1.5rem; }
+  .contact-buttons { flex-direction: column; }
+  .btn-call, .btn-directions { width: 100%; }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+  #testimonials { padding: 5rem 1.5rem; }
+  #gallery { padding: 5rem 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .stats-band { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; padding: 1.5rem 1rem; }
+  .about-img-accent { display: none; }
+  .hero-title { font-size: 2.4rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="nav-logo">
+    <span>Tina Nails & Spa</span>
+    <span>Danbury, Connecticut</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'}); return false;">About</a></li>
+    <li><a href="#services" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'}); return false;">Services</a></li>
+    <li><a href="#gallery" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'}); return false;">Gallery</a></li>
+    <li><a href="#testimonials" onclick="document.getElementById('testimonials').scrollIntoView({behavior:'smooth'}); return false;">Reviews</a></li>
+    <li><a href="#hours" onclick="document.getElementById('hours').scrollIntoView({behavior:'smooth'}); return false;">Hours</a></li>
+    <li><a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;">Contact</a></li>
+    <li><a href="tel:+18605956019" class="nav-cta">Call Now</a></li>
+  </ul>
+  <button class="hamburger" type="button" aria-label="Toggle menu" onclick="(function(e){ e.preventDefault(); e.stopPropagation(); var m=document.getElementById('mobile-menu'); m.classList.toggle('open'); })(event)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobile-menu">
+  <ul>
+    <li><a href="javascript:void(0)" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-menu').classList.remove('open'); return false;">About</a></li>
+    <li><a href="javascript:void(0)" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-menu').classList.remove('open'); return false;">Services</a></li>
+    <li><a href="javascript:void(0)" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-menu').classList.remove('open'); return false;">Gallery</a></li>
+    <li><a href="javascript:void(0)" onclick="document.getElementById('testimonials').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-menu').classList.remove('open'); return false;">Reviews</a></li>
+    <li><a href="javascript:void(0)" onclick="document.getElementById('hours').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-menu').classList.remove('open'); return false;">Hours</a></li>
+    <li><a href="javascript:void(0)" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-menu').classList.remove('open'); return false;">Contact</a></li>
+    <li><a href="tel:+18605956019" class="mobile-cta">Call (860) 595-6019</a></li>
+  </ul>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg">
+    <img src="https://base44.app/api/apps/6a1798b3a88e036d195b8c12/files/mp/public/6a1798b3a88e036d195b8c12/3be78cd74_biz-photo-1.jpg" alt="Tina Nails and Spa interior">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="star-row">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+      </div>
+      <span>4.8 Rating &middot; 25 Reviews</span>
+    </div>
+    <h1 class="hero-title">Where Beauty<br>Meets <em>Serenity</em></h1>
+    <p class="hero-subtitle">Tina Nails & Spa</p>
+    <p class="hero-desc">Indulge in a luxurious nail and spa experience in the heart of Danbury, CT. From flawless manicures to rejuvenating pedicures and spa treatments, we deliver exceptional care in a welcoming atmosphere.</p>
+    <div class="hero-buttons">
+      <a href="tel:+18605956019" class="btn-primary">Book Your Visit</a>
+      <a href="javascript:void(0)" class="btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'}); return false;">Explore Services</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── STATS BAND ── -->
+<div class="stats-band">
+  <div class="stat-item">
+    <div class="stat-num">4.8</div>
+    <div class="stat-label">Star Rating</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">25+</div>
+    <div class="stat-label">Happy Reviews</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">10+</div>
+    <div class="stat-label">Services Offered</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Satisfaction</div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-images">
+    <div class="about-img-main">
+      <img src="https://base44.app/api/apps/6a1798b3a88e036d195b8c12/files/mp/public/6a1798b3a88e036d195b8c12/4cbfa2989_biz-photo-2.jpg" alt="Nail services at Tina Nails and Spa">
+    </div>
+    <div class="about-img-accent">
+      <img src="https://base44.app/api/apps/6a1798b3a88e036d195b8c12/files/mp/public/6a1798b3a88e036d195b8c12/6f3167c07_biz-photo-3.jpg" alt="Spa treatments at Tina Nails">
+    </div>
+  </div>
+  <div class="about-text">
+    <span class="section-tag">About Us</span>
+    <h2 class="section-title">A Premium Nail &<br><em>Spa Experience</em></h2>
+    <p>At Tina Nails and Spa, we believe that every visit should be a moment of pure relaxation and self-care. Our skilled technicians are dedicated to providing flawless nail artistry and rejuvenating spa treatments tailored to your unique needs.</p>
+    <p>Located in Danbury, CT, we welcome clients in a warm, clean, and beautifully appointed space. From our gel manicures to pedicure spa rituals, every service is performed with precision, care, and the finest products.</p>
+    <div class="about-features">
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        </div>
+        <div class="feature-label">Premium Products</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <div class="feature-label">Expert Technicians</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 1l3 6 6.5 1-4.75 4.5 1.25 6.5L12 16l-6 3 1.25-6.5L2.5 8 9 7z"/></svg>
+        </div>
+        <div class="feature-label">Rated 4.8 Stars</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        </div>
+        <div class="feature-label">Easy Appointments</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="section-header">
+    <span class="section-tag">Our Services</span>
+    <h2 class="section-title">Indulge in Our<br><em>Signature Treatments</em></h2>
+    <p>We offer a full menu of nail and spa services designed to help you look and feel your absolute best. Every treatment is crafted with care and expertise.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-card-img">
+        <img src="https://base44.app/api/apps/6a1798b3a88e036d195b8c12/files/mp/public/6a1798b3a88e036d195b8c12/3be78cd74_biz-photo-1.jpg" alt="Manicure services">
+      </div>
+      <div class="service-card-body">
+        <div class="service-name">Manicure Services</div>
+        <p class="service-desc">From classic manicures to elaborate nail art, our technicians create stunning, long-lasting results. Includes gel, acrylic, and dip powder options.</p>
+        <span class="service-price">Starting at $20</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-img">
+        <img src="https://base44.app/api/apps/6a1798b3a88e036d195b8c12/files/mp/public/6a1798b3a88e036d195b8c12/4cbfa2989_biz-photo-2.jpg" alt="Pedicure treatments">
+      </div>
+      <div class="service-card-body">
+        <div class="service-name">Pedicure Spa</div>
+        <p class="service-desc">Treat your feet to our luxurious pedicure treatments. Soak, exfoliate, and nourish with premium products for the ultimate foot care experience.</p>
+        <span class="service-price">Starting at $30</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-img">
+        <img src="https://base44.app/api/apps/6a1798b3a88e036d195b8c12/files/mp/public/6a1798b3a88e036d195b8c12/6f3167c07_biz-photo-3.jpg" alt="Spa treatments">
+      </div>
+      <div class="service-card-body">
+        <div class="service-name">Spa Treatments</div>
+        <p class="service-desc">Relax and rejuvenate with our full range of spa services including waxing, eyebrow shaping, and skin care treatments for a full beauty experience.</p>
+        <span class="service-price">Starting at $15</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="services-extra">
+    <div class="service-mini">
+      <div class="service-mini-dot"></div>
+      <span class="service-mini-name">Gel Nails &amp; Extensions</span>
+    </div>
+    <div class="service-mini">
+      <div class="service-mini-dot"></div>
+      <span class="service-mini-name">Acrylic Full Set</span>
+    </div>
+    <div class="service-mini">
+      <div class="service-mini-dot"></div>
+      <span class="service-mini-name">Dip Powder Nails</span>
+    </div>
+    <div class="service-mini">
+      <div class="service-mini-dot"></div>
+      <span class="service-mini-name">Eyebrow Waxing &amp; Tinting</span>
+    </div>
+    <div class="service-mini">
+      <div class="service-mini-dot"></div>
+      <span class="service-mini-name">Nail Art &amp; Design</span>
+    </div>
+    <div class="service-mini">
+      <div class="service-mini-dot"></div>
+      <span class="service-mini-name">Paraffin Treatments</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY ── -->
+<section id="gallery">
+  <div class="gallery-header">
+    <span class="section-tag">Our Work</span>
+    <h2 class="section-title" style="color:white;">A Glimpse of Our <em style="color:var(--blush)">Beautiful Space</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="https://base44.app/api/apps/6a1798b3a88e036d195b8c12/files/mp/public/6a1798b3a88e036d195b8c12/7fdb9270c_biz-photo-4.jpg" alt="Tina Nails Spa interior and work">
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://base44.app/api/apps/6a1798b3a88e036d195b8c12/files/mp/public/6a1798b3a88e036d195b8c12/4cbfa2989_biz-photo-2.jpg" alt="Nail services">
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://base44.app/api/apps/6a1798b3a88e036d195b8c12/files/mp/public/6a1798b3a88e036d195b8c12/6f3167c07_biz-photo-3.jpg" alt="Spa services">
+      <div class="gallery-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="testimonials-inner">
+    <div class="section-header">
+      <span class="section-tag">Client Reviews</span>
+      <h2 class="section-title">What Our Clients<br><em>Are Saying</em></h2>
+      <p>Don't just take our word for it — hear from our wonderful clients who trust us with their beauty and wellness needs.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testi-stars">
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+        </div>
+        <p class="testi-text">"Absolutely love this place! Tina and her team are so talented and professional. My nails always look flawless when I leave. Best nail salon in Danbury!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sarah M.</div>
+            <div class="testi-date">Verified Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-stars">
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+        </div>
+        <p class="testi-text">"I've been coming here for over a year and I wouldn't go anywhere else. The pedicure spa treatment is absolutely divine — so relaxing and thorough."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">J</div>
+          <div>
+            <div class="testi-name">Jennifer L.</div>
+            <div class="testi-date">Verified Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-stars">
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+        </div>
+        <p class="testi-text">"The atmosphere is so clean and welcoming. The staff is incredibly friendly and skilled. My gel nails lasted over three weeks without chipping!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Amanda R.</div>
+            <div class="testi-date">Verified Google Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rating-summary">
+      <div class="rating-big">4.8</div>
+      <div class="rating-detail">
+        <div class="stars-row">
+          <span class="s">&#9733;</span>
+          <span class="s">&#9733;</span>
+          <span class="s">&#9733;</span>
+          <span class="s">&#9733;</span>
+          <span class="s">&#9733;</span>
+        </div>
+        <p>Based on 25 Google Reviews</p>
+      </div>
+      <div class="rating-divider"></div>
+      <p class="rating-note">"Danbury's most-loved nail &amp; spa destination"</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOURS ── -->
+<section id="hours">
+  <div class="hours-inner">
+    <div class="hours-info">
+      <span class="section-tag">Business Hours</span>
+      <h2 class="section-title">When to<br><em>Visit Us</em></h2>
+      <div class="open-badge">
+        <div class="open-dot"></div>
+        Open Today
+      </div>
+      <p>We welcome walk-ins and appointments. Call ahead to secure your preferred time slot and enjoy a seamless experience from the moment you arrive.</p>
+      <div style="margin-top:2rem;">
+        <a href="tel:+18605956019" class="btn-call">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          Call to Book
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="hours-table">
+        <div class="hours-row">
+          <span class="hours-day">Monday</span>
+          <span class="hours-time">10:00 AM – 7:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Tuesday</span>
+          <span class="hours-time">10:00 AM – 7:00 PM</span>
+        </div>
+        <div class="hours-row hours-today">
+          <span class="hours-day">Wednesday</span>
+          <span class="hours-time">10:00 AM – 7:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Thursday</span>
+          <span class="hours-time">10:00 AM – 7:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Friday</span>
+          <span class="hours-time">10:00 AM – 7:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Saturday</span>
+          <span class="hours-time">9:00 AM – 6:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Sunday</span>
+          <span class="hours-time">10:00 AM – 5:00 PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">Visit Us in<br><em>Danbury, CT</em></h2>
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-label">Address</div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Tina%20Nails%20and%20Spa%207%20Backus%20Ave%20f201%2C%20Danbury%2C%20CT%2006810%2C%20USA" target="_blank" class="contact-info-value">7 Backus Ave f201<br>Danbury, CT 06810, USA</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-label">Phone</div>
+            <a href="tel:+18605956019" class="contact-info-value">(860) 595-6019</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-label">Rating</div>
+            <span class="contact-info-value">4.8 / 5.0 &mdash; 25 Reviews on Google</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-buttons">
+        <a href="tel:+18605956019" class="btn-call">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          Call Now
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Tina%20Nails%20and%20Spa%207%20Backus%20Ave%20f201%2C%20Danbury%2C%20CT%2006810%2C%20USA" target="_blank" class="btn-directions">
+          <svg viewBox="0 0 24 24"><path d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/></svg>
+          Get Directions
+        </a>
+      </div>
+    </div>
+    <div class="map-container">
+      
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <span>Tina Nails & Spa</span>
+        <span>Danbury, Connecticut</span>
+      </div>
+      <p class="footer-tagline">Your premier nail and spa destination in Danbury, CT. We are dedicated to providing exceptional beauty services in a relaxing and welcoming environment.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="javascript:void(0)" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'}); return false;">About Us</a></li>
+        <li><a href="javascript:void(0)" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'}); return false;">Services</a></li>
+        <li><a href="javascript:void(0)" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'}); return false;">Gallery</a></li>
+        <li><a href="javascript:void(0)" onclick="document.getElementById('testimonials').scrollIntoView({behavior:'smooth'}); return false;">Reviews</a></li>
+        <li><a href="javascript:void(0)" onclick="document.getElementById('hours').scrollIntoView({behavior:'smooth'}); return false;">Hours</a></li>
+        <li><a href="javascript:void(0)" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Contact Info</div>
+      <div class="footer-contact-item">7 Backus Ave f201<br>Danbury, CT 06810</div>
+      <div class="footer-contact-item"><a href="tel:+18605956019">(860) 595-6019</a></div>
+      <div class="footer-contact-item">Mon–Fri: 10:00 AM – 7:00 PM<br>Sat: 9:00 AM – 6:00 PM<br>Sun: 10:00 AM – 5:00 PM</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2024 Tina Nails and Spa. All rights reserved. | 7 Backus Ave f201, Danbury, CT 06810</span>
+    <a href="tel:+18605956019" style="font-size:0.75rem; color: var(--blush); text-decoration:none; font-weight:500;">(860) 595-6019</a>
+  </div>
+</footer>
+
+
+<script>
+(function() {
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('a');
+    if (!el) return;
+    var href = el.getAttribute('href');
+    if (!href) return;
+    if (href.startsWith('#') && href.length > 1) {
+      e.preventDefault();
+      e.stopPropagation();
+      var target = document.getElementById(href.slice(1));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      // Close any open mobile menu
+      document.querySelectorAll('.mobile-menu, .nav-menu, .nav-links[class*="open"], [class*="mobile-open"]').forEach(function(m) {
+        m.classList.remove('open', 'active', 'show', 'mobile-open');
+      });
+      return;
+    }
+    if (href === '#' || href === '' || href === '/') {
+      e.preventDefault();
+    }
+  }, true);
+})();
+</script>
+</body>
+</html>
